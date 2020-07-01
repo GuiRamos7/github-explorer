@@ -13,9 +13,8 @@ export default createGlobalStyle`
     box-sizing: border-box;
   }
   body {
-    background-color: #f0f0f5;
     -webkit-font-smoothing: antialiased;
-    background: url(${githubBackground}) no-repeat 70% top;
+    background:#f0f0f5 url(${githubBackground}) no-repeat 70% top;
   }
   body, input , button {
     font: 1.6rem Roboto, sans-serif;
