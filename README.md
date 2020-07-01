@@ -29,4 +29,4 @@
 
 # Techs used in this project
 
-The tecnologies used in this project are [ReactJS](https://reactjs.org/), to handle the style was used [Styled Componentes](https://styled-components.com/) and I use the API  of [GitHub](https://api.github.com/) to see the repositories.
+The tecnologies used in this project are [ReactJS](https://reactjs.org/), to handle the style was used [Styled Componentes](https://styled-components.com/) and I use the API  of [GitHub](https://api.github.com/) to see the repositories and [StoragedAPI](https://developer.mozilla.org/pt-BR/docs/Web/API/Window/Window.localStorage) to save the repositories in storaged of the browser.
