@@ -3,10 +3,13 @@ import { shade } from 'polished';
 
 export const Title = styled.h1`
   color: #3a3a3a;
-  font-size: 48px;
+  font-size: 4.8rem;
   max-width: 480px;
   line-height: 56px;
   margin: 80px 0 0 0;
+  @media (max-width: 500px) {
+    font-size: 3.5rem;
+  }
 `;
 
 export const Form = styled.form`
@@ -20,6 +23,9 @@ export const Form = styled.form`
     border: 0ch;
     border-radius: 7px 0 0 7px;
     color: #3a3a3a;
+    @media (max-width: 500px) {
+      font-size: 1.3rem;
+    }
 
     &::placeholder {
       color: #b8b8b3;
@@ -36,6 +42,10 @@ export const Form = styled.form`
     transition: background 0.3s ease-in-out;
     &:hover {
       background: ${shade(0.2, '#04d361')};
+    }
+    @media (max-width: 500px) {
+      width: 100px;
+      font-size: 1.3rem;
     }
   }
 `;
@@ -74,12 +84,18 @@ export const Repositories = styled.div`
       strong {
         font-size: 2rem;
         color: #3d3d4d;
+        @media (max-width: 500px) {
+          font-size: 1.8rem;
+        }
       }
 
       p {
         font-size: 1.8rem;
         margin-top: 4px;
         color: #a8a8b3;
+        @media (max-width: 500px) {
+          font-size: 1.3rem;
+        }
       }
     }
 
