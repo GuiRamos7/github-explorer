@@ -19,11 +19,11 @@ const Dashboard: React.FC = () => {
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
   const [repositories, setRepositories] = useState<Repository[]>(() => {
-    const storagedRepositories = localStorage.getItem(
+    const storageRepositories = localStorage.getItem(
       '@GithubExplorer:repositories',
     );
-    if (storagedRepositories) {
-      return JSON.parse(storagedRepositories);
+    if (storageRepositories) {
+      return JSON.parse(storageRepositories);
     }
     return [];
   });
@@ -46,8 +46,10 @@ const Dashboard: React.FC = () => {
     }
 
     try {
-      const response = await api.get<Repository>(`repos/${newRepo}`);
-      setRepositories([...repositories, response.data]);
+      const response = await api.get<Array<Repository>>(
+        `users/${newRepo}/repos`,
+      );
+      setRepositories([...repositories, ...response.data]);
       setInputError('');
       setNewRepo('');
     } catch {
@@ -63,24 +65,24 @@ const Dashboard: React.FC = () => {
         <input
           value={newRepo}
           onChange={e => setNewRepo(e.target.value)}
-          placeholder="Digite o nome do repositório"
+          placeholder="Digite o nome de um usuario"
         />
         <button type="submit">Pesquisar</button>
       </Form>
       {inputError && <Error>{inputError}</Error>}
       <Repositories>
-        {repositories.map(repository => (
+        {repositories.reverse().map(repository => (
           <Link
             key={repository.full_name}
             to={`repositories/${repository.full_name}`}
           >
             <img
-              src={repository.owner.avatar_url}
-              alt={repository.owner.login}
+              src={repository?.owner?.avatar_url}
+              alt={repository?.owner?.login}
             />
             <div>
-              <strong>{repository.full_name}</strong>
-              <p>{repository.description}</p>
+              <strong>{repository?.full_name}</strong>
+              <p>{repository?.description}</p>
             </div>
 
             <FiChevronRight size={20} />
